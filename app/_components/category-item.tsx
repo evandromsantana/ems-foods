@@ -4,22 +4,23 @@ import Link from "next/link";
 
 interface CategoryItemProps {
   category: Category;
+  large?: boolean;
 }
 
-const CategoryItem = ({ category }: CategoryItemProps) => {
+const CategoryItem = ({ category, large }: CategoryItemProps) => {
   return (
     <Link
       href={`/categories/${category.id}/products`}
-      className="flex min-w-[140px] items-center gap-3 bg-white px-4 py-3 shadow-md"
+      className={`${large ? "col-span-2" : ""} flex flex-col items-center justify-around rounded-md bg-[#F4F4F5] px-4 py-3`}
     >
       <Image
         src={category.imageUrl}
         alt={category.name}
-        height={30}
-        width={30}
+        height={40}
+        width={40}
       />
 
-      <span className="text-sm font-semibold">{category.name}</span>
+      <span className="text-xs font-semibold">{category.name}</span>
     </Link>
   );
 };
