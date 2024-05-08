@@ -1,6 +1,6 @@
-import { Category } from "@prisma/client";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { Category } from "@prisma/client";
 
 interface CategoryItemProps {
   category: Category;
