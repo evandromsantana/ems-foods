@@ -49,5 +49,3 @@ const ProductPage = async ({ params: { id } }: ProductPageProps) => {
 };
 
 export default ProductPage;
-
-//1:13:54
