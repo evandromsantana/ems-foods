@@ -58,7 +58,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
     <div>
       <RestaurantImage restaurant={restaurant} />
 
-      <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tr-3xl bg-white px-5 pt-5">
+      <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tl-3xl rounded-tr-3xl bg-white px-5 pt-5">
         {/* TITULO */}
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-8 w-8">
@@ -71,7 +71,6 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           </div>
           <h1 className="text-xl font-semibold">{restaurant.name}</h1>
         </div>
-
         <div className="flex items-center gap-[3px] rounded-full bg-foreground px-2 py-[2px] text-white">
           <StarIcon size={12} className="fill-yellow-400 text-yellow-500" />
           <span className="text-xs font-semibold">5.0</span>
