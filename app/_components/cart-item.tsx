@@ -13,7 +13,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
   const {
     decreaseProductQuantity,
     increaseProductQuantity,
-    removeProductFormCart,
+    removeProductFromCart,
   } = useContext(CartContext);
 
   const handleDecreaseQuantityClick = () =>
@@ -22,7 +22,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
   const handleIncreaseQuantityClick = () =>
     increaseProductQuantity(cartProduct.id);
 
-  const handleRemoveClick = () => removeProductFormCart(cartProduct.id);
+  const handleRemoveClick = () => removeProductFromCart(cartProduct.id);
 
   return (
     <div className="flex items-center justify-between">
@@ -33,6 +33,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
             src={cartProduct.imageUrl}
             alt={cartProduct.name}
             fill
+            sizes="100%"
             className="rounded-lg object-cover"
           />
         </div>
@@ -56,7 +57,8 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
           </div>
 
           {/* QUANTIDADE */}
-          <div className="flex items-center gap-3 text-center">
+
+          <div className="flex items-center text-center">
             <Button
               size="icon"
               variant="ghost"
@@ -67,7 +69,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
                 onClick={handleDecreaseQuantityClick}
               />
             </Button>
-            <span className="block w-3 text-xs">{cartProduct.quantity}</span>
+            <span className="block w-8 text-xs">{cartProduct.quantity}</span>
             <Button
               size="icon"
               className="h-7 w-7"

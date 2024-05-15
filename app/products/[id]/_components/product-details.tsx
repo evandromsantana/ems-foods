@@ -4,12 +4,22 @@ import Cart from "@/app/_components/cart";
 import DeliveryInfo from "@/app/_components/delivery-info";
 import DiscountBadge from "@/app/_components/discount-badge";
 import ProductList from "@/app/_components/product-list";
+import {
+  AlertDialog,
+  AlertDialogTitle,
+  AlertDialogAction,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+} from "@/app/_components/ui/alert-dialog";
 import { Button } from "@/app/_components/ui/button";
 import {
   Sheet,
-  SheetContent,
-  SheetHeader,
   SheetTitle,
+  SheetHeader,
+  SheetContent,
 } from "@/app/_components/ui/sheet";
 import { CartContext } from "@/app/_context/cart";
 import {
@@ -40,13 +50,30 @@ const ProductDetails = ({
 }: ProductDetailProps) => {
   const [quantity, setQuantity] = useState(1);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
+    useState(false);
+
   const { addProductToCart, products } = useContext(CartContext);
 
-  console.log(products);
+  const addToCart = ({ emptyCart }: { emptyCart?: boolean }) => {
+    addProductToCart({ product: { ...product, quantity }, emptyCart });
+    setIsCartOpen(true);
+  };
 
   const handleAddToCartClick = () => {
-    addProductToCart(product, quantity);
-    setIsCartOpen(true);
+    // VERIFICAR SE HÁ ALGUM PRODUTO DE OUTRO RESTAURANTE NO CARRINHO
+    const hasDifferentRestaurantProduct = products.some(
+      (cartProduct) => cartProduct.restaurantId !== product.restaurantId,
+    );
+
+    // SE HOUVER, ABRIR UM AVISO
+    if (hasDifferentRestaurantProduct) {
+      return setIsConfirmationDialogOpen(true);
+    }
+
+    addToCart({
+      emptyCart: false,
+    });
   };
 
   const handleIncreaseQuantityClick = () =>
@@ -68,6 +95,7 @@ const ProductDetails = ({
               src={product.restaurant.imageUrl}
               alt={product.restaurant.name}
               fill
+              sizes="100%"
               className="rounded-full object-cover"
             />
           </div>
@@ -77,7 +105,7 @@ const ProductDetails = ({
         </div>
 
         {/* NOME DO PRODUTO */}
-        <h1 className="font-semibol mb-2 mt-1 px-5 text-xl">{product.name}</h1>
+        <h1 className="mb-2 mt-1 px-5 text-xl font-semibold">{product.name}</h1>
 
         {/* PREÇO DO PRODUTO E QUANTIDADE */}
         <div className="flex justify-between px-5">
@@ -152,6 +180,29 @@ const ProductDetails = ({
           <Cart />
         </SheetContent>
       </Sheet>
+
+      <AlertDialog
+        open={isConfirmationDialogOpen}
+        onOpenChange={setIsConfirmationDialogOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Você só pode adicionar itens de um restaurante por vez
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Deseja mesmo adicionar esse produto? Isso limpará sua sacola
+              atual.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction onClick={() => addToCart({ emptyCart: true })}>
+              Esvaziar sacola e adicionar
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 };
