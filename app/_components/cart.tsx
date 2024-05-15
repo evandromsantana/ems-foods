@@ -68,5 +68,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-//2:00:30
