@@ -1,17 +1,17 @@
 "use client";
 
-import Cart from "@/app/_components/cart";
-import { Button } from "@/app/_components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from "@/app/_components/ui/sheet";
-import { CartContext } from "@/app/_context/cart";
-import { formatCurrency } from "@/app/_helpers/price";
+import Cart from "@/app/_components/cart";
 import { Restaurant } from "@prisma/client";
 import { useContext, useState } from "react";
+import { CartContext } from "@/app/_context/cart";
+import { Button } from "@/app/_components/ui/button";
+import { formatCurrency } from "@/app/_helpers/price";
 
 interface CartBannerProps {
   restaurant: Pick<Restaurant, "id">;
