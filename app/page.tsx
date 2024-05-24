@@ -8,6 +8,7 @@ import CategoryList from "./_components/category-list";
 import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
+import ButtonShopingCart from "./_components/ButtonShopingCart";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -114,6 +115,9 @@ const Home = async () => {
         </div>
         <RestaurantList />
       </div>
+
+      {/* TODO: ver pedidos */}
+      <ButtonShopingCart />
     </>
   );
 };

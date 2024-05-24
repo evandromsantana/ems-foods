@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <CartProvider>{children}</CartProvider>
+          <div className="relative">
+            <CartProvider>{children}</CartProvider>
+          </div>
         </AuthProvider>
 
         <Toaster />
