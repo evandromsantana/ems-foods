@@ -24,9 +24,8 @@ export default function RootLayout({
           <div className="relative">
             <CartProvider>{children}</CartProvider>
           </div>
+          <Toaster />
         </AuthProvider>
-
-        <Toaster />
       </body>
     </html>
   );
