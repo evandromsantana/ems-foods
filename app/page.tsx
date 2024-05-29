@@ -9,6 +9,7 @@ import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
 import ButtonShopingCart from "./_components/ButtonShopingCart";
+import Image from "next/image";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -49,20 +50,44 @@ const fetch = async () => {
 };
 
 const Home = async () => {
-  const { products, burguersCategory, pizzasCategory } = await fetch();
+  const { products, pizzasCategory, burguersCategory } = await fetch();
 
   return (
     <>
       <Header />
-      <div className="px-5 pt-6">
-        <Search />
+      <div className="flex-row items-center px-6 py-2 pt-5 md:flex md:h-[350px] md:bg-[#EA1D2C] md:py-2">
+        <div className=" flex flex-row items-center justify-between md:mt-5 md:w-full lg:gap-20 xl:gap-48 ">
+          <div className="w-full flex-col justify-center md:w-2/4">
+            <h1 className="hidden text-3xl font-extrabold text-white md:block lg:text-4xl xl:text-5xl">
+              Está com fome?
+            </h1>
+            <p className="mb-2 hidden text-sm text-muted-foreground text-white md:block">
+              Com apenas alguns cliques, encontre refeições acessíveis perto de
+              você.
+            </p>
+
+            <div className="flex h-0 w-full items-center justify-center rounded-md bg-white p-0 md:h-24 md:w-full md:p-6">
+              <Search isHomePage={true} />
+            </div>
+          </div>
+
+          <div className="hidden pr-0 md:flex lg:pr-28">
+            <Image
+              src="/pngwing.com.png"
+              alt="Foods"
+              height={300}
+              width={300}
+              className="object-cover "
+            />
+          </div>
+        </div>
       </div>
 
       <div className="px-5 pt-6">
         <CategoryList />
       </div>
 
-      <div className="px-5 pt-6">
+      <div className="w-full px-5 pt-6 md:hidden">
         <Link href={`/categories/${pizzasCategory?.id}/products`}>
           <PromoBanner
             src="/promo-banner-01.png"
@@ -89,13 +114,24 @@ const Home = async () => {
         <ProductList products={products} />
       </div>
 
-      <div className="px-5 pt-6">
-        <Link href={`/categories/${burguersCategory?.id}/products`}>
-          <PromoBanner
-            src="/promo-banner-02.png"
-            alt="A partir de R$17,90 em lanches"
-          />
-        </Link>
+      <div className="flex justify-center gap-4 pt-6 md:justify-between md:px-6">
+        <>
+          <Link href={`/categories/${pizzasCategory?.id}/products`}>
+            <PromoBanner
+              src="/promo-banner-01.png"
+              alt="Até 30% de desconto em pizzas!"
+              className="mt-4 hidden w-full sm:block "
+            />
+          </Link>
+
+          <Link href={`/categories/${burguersCategory?.id}/products`}>
+            <PromoBanner
+              src="/promo-banner-02.png"
+              alt="A partir de R$17,90 em lanches"
+              className="w-full"
+            />
+          </Link>
+        </>
       </div>
 
       <div className="space-y-4 py-6">
