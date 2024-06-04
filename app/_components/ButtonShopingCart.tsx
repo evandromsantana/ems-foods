@@ -11,7 +11,7 @@ const ButtonShopingCart = () => {
 
   return (
     <>
-      <div className="fixed bottom-2 right-2">
+      <div className="fixed bottom-4 right-4">
         <Button size={"icon"} onClick={() => setIsCartOpen(true)}>
           <ShoppingCart />
         </Button>

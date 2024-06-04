@@ -11,7 +11,7 @@ const CategoryItem = ({ category, large }: CategoryItemProps) => {
   return (
     <Link
       href={`/categories/${category.id}/products`}
-      className={`${large ? "col-span-2" : ""} flex flex-col items-center justify-around rounded-md bg-[#F4F4F5] px-4 py-3`}
+      className={`${large ? "col-span-2" : ""} flex flex-col items-center justify-around rounded-md bg-[#F4F4F5] px-4 py-3 md:w-full md:flex-row md:justify-center md:gap-4`}
     >
       <Image
         src={category.imageUrl}

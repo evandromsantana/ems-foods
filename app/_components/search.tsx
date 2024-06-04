@@ -1,10 +1,10 @@
 "use client";
 
-import { SearchIcon } from "lucide-react";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { FormEventHandler, useState } from "react";
+import { Button } from "./ui/button";
+import { SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FormEventHandler, useState } from "react";
 
 const Search = ({ isHomePage }: { isHomePage?: boolean }) => {
   const router = useRouter();
