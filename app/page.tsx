@@ -10,6 +10,7 @@ import ProductList from "./_components/product-list";
 import CategoryList from "./_components/category-list";
 import RestaurantList from "./_components/restaurant-list";
 import ButtonShopingCart from "./_components/ButtonShopingCart";
+import { CarouselSize } from "./_components/banner-carousel";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -87,13 +88,17 @@ const Home = async () => {
         <CategoryList />
       </div>
 
-      <div className="w-full px-5 pt-6 md:hidden">
+      {/* <div className="w-full px-5 pt-6 md:hidden">
         <Link href={`/categories/${pizzasCategory?.id}/products`}>
           <PromoBanner
             src="/promo-banner-01.png"
             alt="Até 30% de desconto em pizzas!"
           />
         </Link>
+      </div> */}
+
+      <div className="w-full px-5 pt-6 md:hidden">
+        <CarouselSize />
       </div>
 
       <div className="space-y-4 pt-6">
