@@ -1,8 +1,10 @@
 import { Suspense } from "react";
-import Restaurants from "./_components/restaurants";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../_lib/auth";
 import { db } from "../_lib/prisma";
+
+// components
+import Restaurants from "./_components/restaurants";
 
 const RestaurantsPage = async () => {
   const session = await getServerSession(authOptions);

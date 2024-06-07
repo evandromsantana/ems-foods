@@ -1,9 +1,11 @@
 import { db } from "@/app/_lib/prisma";
 import { notFound } from "next/navigation";
+
+// components
+import Header from "@/app/_components/header";
 import ProductImagem from "./_components/product-image";
 import ProductDetails from "./_components/product-details";
 import ProductList from "@/app/_components/product-list";
-import Header from "@/app/_components/header";
 
 interface ProductPageProps {
   params: {

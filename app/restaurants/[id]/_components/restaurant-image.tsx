@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@/app/_components/ui/button";
-import { isRestaurantFavorited } from "@/app/_helpers/restaurant";
-import useToggleFavoriteRestaurant from "@/app/_hooks/use-toggle-favorite-restaurant";
-import { Restaurant, UserFavoriteRestaurant } from "@prisma/client";
-import { ChevronLeftIcon, HeartIcon } from "lucide-react";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { Button } from "@/app/_components/ui/button";
+import { ChevronLeftIcon, HeartIcon } from "lucide-react";
+import { isRestaurantFavorited } from "@/app/_helpers/restaurant";
+import { Restaurant, UserFavoriteRestaurant } from "@prisma/client";
+import useToggleFavoriteRestaurant from "@/app/_hooks/use-toggle-favorite-restaurant";
 
 interface RestaurantImageProps {
   restaurant: Pick<Restaurant, "id" | "name" | "imageUrl">;

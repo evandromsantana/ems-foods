@@ -1,36 +1,38 @@
 "use client";
 
-import Cart from "@/app/_components/cart";
-import DeliveryInfo from "@/app/_components/delivery-info";
-import DiscountBadge from "@/app/_components/discount-badge";
-import ProductList from "@/app/_components/product-list";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/app/_components/ui/alert-dialog";
-import { Button } from "@/app/_components/ui/button";
+  formatCurrency,
+  calculateProductTotalPrice,
+} from "@/app/_helpers/price";
+import Image from "next/image";
+import { Prisma } from "@prisma/client";
+import { useContext, useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+
+// components
 import {
   Sheet,
-  SheetContent,
-  SheetHeader,
   SheetTitle,
+  SheetHeader,
+  SheetContent,
 } from "@/app/_components/ui/sheet";
-import { CartContext } from "@/app/_context/cart";
-
 import {
-  calculateProductTotalPrice,
-  formatCurrency,
-} from "@/app/_helpers/price";
-import { Prisma } from "@prisma/client";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import Image from "next/image";
-import { useContext, useState } from "react";
+  AlertDialog,
+  AlertDialogTitle,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogDescription,
+} from "@/app/_components/ui/alert-dialog";
+import Cart from "@/app/_components/cart";
+import { Button } from "@/app/_components/ui/button";
+import ProductList from "@/app/_components/product-list";
+import DeliveryInfo from "@/app/_components/delivery-info";
+import DiscountBadge from "@/app/_components/discount-badge";
+
+import { CartContext } from "@/app/_context/cart";
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{

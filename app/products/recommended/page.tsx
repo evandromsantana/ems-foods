@@ -1,9 +1,11 @@
-import Header from "@/app/_components/header";
-import ProductItem from "@/app/_components/product-item";
-import { Button } from "@/app/_components/ui/button";
+import Link from "next/link";
 import { db } from "@/app/_lib/prisma";
 import { ChevronLeftIcon } from "lucide-react";
-import Link from "next/link";
+
+// components
+import Header from "@/app/_components/header";
+import { Button } from "@/app/_components/ui/button";
+import ProductItem from "@/app/_components/product-item";
 
 const RecommendedProductsPage = async () => {
   const products = await db.product.findMany({

@@ -1,16 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { db } from "./_lib/prisma";
+import { ChevronRightIcon } from "lucide-react";
+
+//shadcn
+import { Button } from "./_components/ui/button";
+
+// components
 import Header from "./_components/header";
 import Search from "./_components/search";
-import { ChevronRightIcon } from "lucide-react";
-import { Button } from "./_components/ui/button";
-import PromoBanner from "./_components/promo-banner";
 import ProductList from "./_components/product-list";
 import CategoryList from "./_components/category-list";
 import RestaurantList from "./_components/restaurant-list";
+import { BannerCarousel } from "./_components/banner-carousel";
 import ButtonShopingCart from "./_components/ButtonShopingCart";
-import { CarouselSize } from "./_components/banner-carousel";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -51,7 +54,7 @@ const fetch = async () => {
 };
 
 const Home = async () => {
-  const { products, pizzasCategory, burguersCategory } = await fetch();
+  const { products } = await fetch();
 
   return (
     <>
@@ -84,7 +87,7 @@ const Home = async () => {
         </div>
       </div>
 
-      <div className="px-5 pt-6">
+      <div className=" px-5 pt-6 ">
         <CategoryList />
       </div>
 
@@ -98,7 +101,7 @@ const Home = async () => {
       </div> */}
 
       <div className="w-full px-5 pt-6 md:hidden">
-        <CarouselSize />
+        <BannerCarousel />
       </div>
 
       <div className="space-y-4 pt-6">
@@ -119,9 +122,10 @@ const Home = async () => {
         <ProductList products={products} />
       </div>
 
-      <div className="flex justify-center px-5 pt-6 md:items-center md:justify-between md:gap-4 md:px-6">
+      <div className="flex justify-center px-5 pt-6 md:items-center md:justify-between md:px-4">
         <>
-          <Link href={`/categories/${pizzasCategory?.id}/products`}>
+          <BannerCarousel />
+          {/* <Link href={`/categories/${pizzasCategory?.id}/products`}>
             <PromoBanner
               src="/promo-banner-01.png"
               alt="Até 30% de desconto em pizzas!"
@@ -135,7 +139,7 @@ const Home = async () => {
               alt="A partir de R$17,90 em lanches"
               className="w-full"
             />
-          </Link>
+          </Link> */}
         </>
       </div>
 

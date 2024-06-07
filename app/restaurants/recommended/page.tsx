@@ -1,11 +1,13 @@
-import Header from "@/app/_components/header";
-import RestaurantItem from "@/app/_components/restaurant-item";
-import { Button } from "@/app/_components/ui/button";
-import { authOptions } from "@/app/_lib/auth";
+import Link from "next/link";
 import { db } from "@/app/_lib/prisma";
 import { ChevronLeftIcon } from "lucide-react";
+import { authOptions } from "@/app/_lib/auth";
 import { getServerSession } from "next-auth";
-import Link from "next/link";
+
+// components
+import Header from "@/app/_components/header";
+import { Button } from "@/app/_components/ui/button";
+import RestaurantItem from "@/app/_components/restaurant-item";
 
 const RecommendedRestaurants = async () => {
   const session = await getServerSession(authOptions);
