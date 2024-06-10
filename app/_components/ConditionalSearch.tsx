@@ -1,8 +1,8 @@
 "use client";
 
+import Search from "./search";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Search from "./search";
 
 const ConditionalSearch = () => {
   const pathname = usePathname();

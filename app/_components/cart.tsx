@@ -1,26 +1,28 @@
-import { useContext, useState } from "react";
-import { CartContext } from "../_context/cart";
-import CartItem from "./cart-item";
-import { Card, CardContent } from "./ui/card";
-import { formatCurrency } from "../_helpers/price";
-import { Separator } from "./ui/separator";
-import { Button } from "./ui/button";
-import { createOrder } from "../_actions/order";
-import { OrderStatus } from "@prisma/client";
-import { useSession } from "next-auth/react";
+import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useContext, useState } from "react";
+import { useSession } from "next-auth/react";
+import { OrderStatus } from "@prisma/client";
+import { CartContext } from "../_context/cart";
+import { createOrder } from "../_actions/order";
+import { formatCurrency } from "../_helpers/price";
+
+// components
 import {
   AlertDialog,
+  AlertDialogTitle,
   AlertDialogAction,
   AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogTitle,
+  AlertDialogContent,
+  AlertDialogDescription,
 } from "./ui/alert-dialog";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import CartItem from "./cart-item";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
+import { Card, CardContent } from "./ui/card";
 
 interface CartProps {
   // eslint-disable-next-line no-unused-vars

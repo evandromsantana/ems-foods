@@ -7,6 +7,7 @@ import { formatCurrency } from "@/app/_helpers/price";
 
 // components
 import Cart from "@/app/_components/cart";
+
 import { Button } from "@/app/_components/ui/button";
 import {
   Sheet,

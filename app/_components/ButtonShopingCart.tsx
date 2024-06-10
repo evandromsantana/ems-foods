@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
+
+// components
+import Cart from "./cart";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
-import Cart from "./cart";
-import { useState } from "react";
 
 const ButtonShopingCart = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);

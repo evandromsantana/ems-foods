@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { signIn, signOut, useSession } from "next-auth/react";
+
+// components
 import {
   HeartIcon,
   HomeIcon,
@@ -11,7 +13,8 @@ import {
   ScrollTextIcon,
 } from "lucide-react";
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -20,7 +23,6 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Separator } from "./ui/separator";
 
 import ConditionalSearch from "./ConditionalSearch";
 

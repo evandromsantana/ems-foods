@@ -1,12 +1,14 @@
+import { ChevronLeftIcon } from "lucide-react";
 import { getServerSession } from "next-auth";
-import { db } from "../_lib/prisma";
 import { authOptions } from "../_lib/auth";
 import { notFound } from "next/navigation";
-import Header from "../_components/header";
-import RestaurantItem from "../_components/restaurant-item";
-import { Button } from "../_components/ui/button";
-import { ChevronLeftIcon } from "lucide-react";
+import { db } from "../_lib/prisma";
 import Link from "next/link";
+
+// components
+import Header from "../_components/header";
+import { Button } from "../_components/ui/button";
+import RestaurantItem from "../_components/restaurant-item";
 
 const MyFavoriteRestaurants = async () => {
   const session = await getServerSession(authOptions);

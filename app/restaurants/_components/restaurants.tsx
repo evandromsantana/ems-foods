@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { searchForRestaurants } from "../_actions/search";
 import { notFound, useSearchParams } from "next/navigation";
-import RestaurantItem from "@/app/_components/restaurant-item";
 import { Restaurant, UserFavoriteRestaurant } from "@prisma/client";
 
 // components
 import Header from "@/app/_components/header";
+import RestaurantItem from "@/app/_components/restaurant-item";
 interface RestaurantProps {
   userFavoriteRestaurants: UserFavoriteRestaurant[];
 }

@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "../_lib/utils";
 import { Prisma } from "@prisma/client";
 import { ArrowDownIcon } from "lucide-react";
 import { calculateProductTotalPrice, formatCurrency } from "../_helpers/price";
-import { cn } from "../_lib/utils";
 
 interface ProductItemProps {
   product: Prisma.ProductGetPayload<{

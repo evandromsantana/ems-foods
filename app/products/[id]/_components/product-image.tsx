@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Product } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { ChevronLeftIcon } from "lucide-react";
+
+// components
 import { Button } from "@/app/_components/ui/button";
 
 interface ProductImageProps {

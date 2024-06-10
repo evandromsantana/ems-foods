@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { db } from "@/app/_lib/prisma";
 import { notFound } from "next/navigation";
-import Header from "@/app/_components/header";
 import { ChevronLeftIcon } from "lucide-react";
+
+// components
+import Header from "@/app/_components/header";
 import { Button } from "@/app/_components/ui/button";
 import ProductItem from "@/app/_components/product-item";
 

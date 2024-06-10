@@ -1,7 +1,7 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { db } from "../_lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export const toggleFavoriteRestaurant = async (
   userId: string,

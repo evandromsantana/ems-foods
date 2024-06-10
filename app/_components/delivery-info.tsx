@@ -1,7 +1,9 @@
-import { BikeIcon, TimerIcon } from "lucide-react";
-import { Card } from "./ui/card";
-import { formatCurrency } from "../_helpers/price";
 import { Restaurant } from "@prisma/client";
+import { BikeIcon, TimerIcon } from "lucide-react";
+import { formatCurrency } from "../_helpers/price";
+
+// components
+import { Card } from "./ui/card";
 
 interface DeliveryInfoProps {
   restaurant: Pick<Restaurant, "deliveryFee" | "deliveryTimeMinutes">;

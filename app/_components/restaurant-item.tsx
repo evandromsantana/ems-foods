@@ -1,15 +1,17 @@
 "use client";
 
+import Link from "next/link";
+import { toast } from "sonner";
+import Image from "next/image";
+import { cn } from "../_lib/utils";
+import { useSession } from "next-auth/react";
+import { formatCurrency } from "../_helpers/price";
+import { toggleFavoriteRestaurant } from "../_actions/restaurant";
 import { Restaurant, UserFavoriteRestaurant } from "@prisma/client";
 import { BikeIcon, HeartIcon, StarIcon, TimerIcon } from "lucide-react";
-import Image from "next/image";
-import { formatCurrency } from "../_helpers/price";
+
+// components
 import { Button } from "./ui/button";
-import Link from "next/link";
-import { cn } from "../_lib/utils";
-import { toggleFavoriteRestaurant } from "../_actions/restaurant";
-import { toast } from "sonner";
-import { useSession } from "next-auth/react";
 
 interface RestaurantItemProps {
   restaurant: Restaurant;

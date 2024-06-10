@@ -1,12 +1,14 @@
-import { getServerSession } from "next-auth";
+import Link from "next/link";
 import { db } from "../_lib/prisma";
 import { authOptions } from "../_lib/auth";
 import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { ChevronLeftIcon } from "lucide-react";
+
+// components
 import Header from "../_components/header";
 import OrderItem from "./_components/order-item";
 import { Button } from "../_components/ui/button";
-import Link from "next/link";
-import { ChevronLeftIcon } from "lucide-react";
 
 const MyOrdersPage = async () => {
   const session = await getServerSession(authOptions);
